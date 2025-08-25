@@ -1,0 +1,179 @@
+/* Enhanced About Section Styling */
+#about {
+  position: relative;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  padding: 5rem 2rem; /* Adds vertical spacing to fill page */
+  overflow: hidden;
+}
+
+/* Elegant animated background pattern */
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(59, 130, 246, 0.05) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(59, 130, 246, 0.03) 0%,
+      transparent 25%
+    );
+  background-size: 200px 200px, 200px 200px;
+  animation: patternMove 30s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes patternMove {
+  0%,
+  100% {
+    background-position: 0% 0%, 100% 100%;
+  }
+  50% {
+    background-position: 100% 0%, 0% 100%;
+  }
+}
+
+/* Container positioning */
+#about .container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+#about h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Bio paragraph */
+#about p {
+  font-family: "Inter", sans-serif;
+  line-height: 1.4;
+  color: #475569;
+  font-size: 1.15rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Skills Grid - 2 columns with spacing */
+#about .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Skill card styling */
+#about .flex.items-start {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+/* Staggered animation using nth-child */
+#about .flex.items-start:nth-child(1) {
+  animation-delay: 0.1s;
+}
+#about .flex.items-start:nth-child(2) {
+  animation-delay: 0.3s;
+}
+#about .flex.items-start:nth-child(3) {
+  animation-delay: 0.5s;
+}
+#about .flex.items-start:nth-child(4) {
+  animation-delay: 0.7s;
+}
+#about .flex.items-start:nth-child(5) {
+  animation-delay: 0.9s;
+}
+#about .flex.items-start:nth-child(6) {
+  animation-delay: 1.1s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Icon styling */
+#about .text-blue-600 {
+  color: #3b82f6 !important;
+  font-size: 1.75rem;
+  margin-right: 1rem;
+}
+
+/* Skill title */
+#about .font-semibold {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  #about .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #about {
+    padding: 4rem 1.5rem;
+  }
+
+  #about h2 {
+    font-size: 2.5rem;
+  }
+
+  #about p {
+    font-size: 1.05rem;
+  }
+
+  #about .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #about h2 {
+    font-size: 2rem;
+  }
+  #about p {
+    font-size: 1rem;
+  }
+  #about .flex.items-start {
+    padding: 1.5rem;
+  }
+}
