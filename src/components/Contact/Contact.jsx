@@ -65,33 +65,33 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="contact-form-container">
+      <div className="container">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">Get In Touch</h2>
-          <div className="w-16 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-4">
+          <h2>Get In Touch</h2>
+          <p>
             Have a project in mind or want to collaborate? I'd love to hear from
             you! Reach out using the form or connect with me on social media.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="contact-grid">
           {/* Contact Info */}
-          <div className="bg-gray-50 rounded-xl shadow-md p-6 space-y-6">
-            <h4 className="text-xl font-bold mb-4">Contact Information</h4>
+          <div className="contact-card">
+            <h4 className="contact-name">Contact Information</h4>
 
             {/* Email */}
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-600">
+            <div className="contact-info-item mb-4">
+              <div className="contact-avatar">
                 <FaEnvelope />
               </div>
               <div>
-                <h6 className="font-semibold">Email</h6>
+                <h6 className="contact-name">Email</h6>
                 <a
                   href="mailto:contact@example.com"
-                  className="text-blue-600 hover:underline"
+                  className="contact-info-item"
+                  style={{ color: "#2563eb", textDecoration: "none" }}
                 >
                   contact@example.com
                 </a>
@@ -99,15 +99,16 @@ const Contact = () => {
             </div>
 
             {/* Phone */}
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-600">
+            <div className="contact-info-item mb-4">
+              <div className="contact-avatar">
                 <FaPhone />
               </div>
               <div>
-                <h6 className="font-semibold">Phone</h6>
+                <h6 className="contact-name">Phone</h6>
                 <a
                   href="tel:+1234567890"
-                  className="text-gray-600 hover:underline"
+                  className="contact-info-item"
+                  style={{ textDecoration: "none" }}
                 >
                   +1 (234) 567-890
                 </a>
@@ -115,13 +116,13 @@ const Contact = () => {
             </div>
 
             {/* Location */}
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-600">
+            <div className="contact-info-item mb-4">
+              <div className="contact-avatar">
                 <FaMapMarkerAlt />
               </div>
               <div>
-                <h6 className="font-semibold">Location</h6>
-                <p className="text-gray-600">
+                <h6 className="contact-name">Location</h6>
+                <p className="contact-info-item">
                   San Francisco, California
                   <br />
                   United States
@@ -130,24 +131,55 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className="pt-4">
-              <h6 className="font-semibold mb-3">Connect With Me</h6>
-              <div className="flex space-x-4">
+            <div className="mt-4">
+              <h6 className="contact-name mb-3">Connect With Me</h6>
+              <div className="contact-actions">
                 <a
                   href="#"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700"
+                  className="btn btn-primary"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "0",
+                  }}
                 >
                   <FaLinkedin />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-black"
+                  className="btn btn-secondary"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "0",
+                    background: "#374151",
+                    color: "white",
+                  }}
                 >
                   <FaGithub />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-sky-400 text-white hover:bg-sky-500"
+                  className="btn btn-secondary"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "0",
+                    background: "#0ea5e9",
+                    color: "white",
+                  }}
                 >
                   <FaTwitter />
                 </a>
@@ -156,12 +188,19 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="md:col-span-2 bg-white rounded-xl shadow-md p-6">
-            <h4 className="text-xl font-bold mb-4">Send Me a Message</h4>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block font-medium mb-1">
+          <div className="contact-form" style={{ gridColumn: "span 2" }}>
+            <h4 className="contact-name mb-4">Send Me a Message</h4>
+            <form onSubmit={handleSubmit}>
+              <div
+                className="contact-grid"
+                style={{
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "1rem",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                <div className="form-group">
+                  <label htmlFor="name" className="form-label">
                     Your Name *
                   </label>
                   <input
@@ -170,12 +209,12 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="form-input"
                     required
                   />
                 </div>
-                <div>
-                  <label htmlFor="email" className="block font-medium mb-1">
+                <div className="form-group">
+                  <label htmlFor="email" className="form-label">
                     Your Email *
                   </label>
                   <input
@@ -184,14 +223,14 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="form-input"
                     required
                   />
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="subject" className="block font-medium mb-1">
+              <div className="form-group">
+                <label htmlFor="subject" className="form-label">
                   Subject *
                 </label>
                 <input
@@ -200,13 +239,13 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="form-input"
                   required
                 />
               </div>
 
-              <div>
-                <label htmlFor="message" className="block font-medium mb-1">
+              <div className="form-group">
+                <label htmlFor="message" className="form-label">
                   Message *
                 </label>
                 <textarea
@@ -215,7 +254,7 @@ const Contact = () => {
                   rows="6"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="form-textarea"
                   required
                 ></textarea>
               </div>
@@ -223,14 +262,17 @@ const Contact = () => {
               <div className="text-right">
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition"
+                  className="form-submit"
                   disabled={formStatus.submitting}
                 >
                   {formStatus.submitting ? (
-                    "Sending..."
+                    <>
+                      <span className="loading-spinner"></span>
+                      Sending...
+                    </>
                   ) : (
                     <>
-                      <FaPaperPlane className="inline-block mr-2" />
+                      <FaPaperPlane style={{ marginRight: "0.5rem" }} />
                       Send Message
                     </>
                   )}
@@ -239,8 +281,8 @@ const Contact = () => {
             </form>
 
             {formStatus.submitted && (
-              <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg flex items-center space-x-2">
-                <FaCheckCircle />
+              <div className="alert alert-success mt-4">
+                <FaCheckCircle style={{ marginRight: "0.5rem" }} />
                 <span>Your message has been sent. Thank you!</span>
               </div>
             )}

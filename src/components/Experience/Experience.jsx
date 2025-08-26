@@ -5,6 +5,7 @@ import {
   faGraduationCap,
   faCertificate,
 } from "@fortawesome/free-solid-svg-icons";
+import "./Experience.css";
 
 const Experience = () => {
   return (
