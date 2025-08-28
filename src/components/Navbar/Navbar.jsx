@@ -16,6 +16,41 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle navigation and menu closing
+  const handleNavClick = (href) => {
+    // Navigate to the section first
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Close the mobile menu - multiple approaches for reliability
+    const closeMenu = () => {
+      const navbarCollapse = document.getElementById("navbarSupportedContent");
+      if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+        // Method 1: Try Bootstrap's collapse API
+        if (window.bootstrap && window.bootstrap.Collapse) {
+          const bsCollapse =
+            window.bootstrap.Collapse.getInstance(navbarCollapse) ||
+            new window.bootstrap.Collapse(navbarCollapse, { toggle: false });
+          bsCollapse.hide();
+        } else {
+          // Method 2: Simulate toggle button click
+          const toggleButton = document.querySelector(".navbar-toggler");
+          if (toggleButton) {
+            toggleButton.click();
+          } else {
+            // Method 3: Manual class removal
+            navbarCollapse.classList.remove("show");
+          }
+        }
+      }
+    };
+
+    // Small delay to ensure navigation happens first
+    setTimeout(closeMenu, 100);
+  };
+
   return (
     <nav
       className={`navbar navbar-expand-lg fixed-top ${
@@ -47,27 +82,62 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link text-white" href="#home">
+              <a
+                className="nav-link text-white"
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#home");
+                }}
+              >
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white" href="#about">
+              <a
+                className="nav-link text-white"
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#about");
+                }}
+              >
                 About
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white" href="#skills">
+              <a
+                className="nav-link text-white"
+                href="#skills"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#skills");
+                }}
+              >
                 Skills
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white" href="#experience">
+              <a
+                className="nav-link text-white"
+                href="#experience"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#experience");
+                }}
+              >
                 Experience
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white" href="#contact">
+              <a
+                className="nav-link text-white"
+                href="#footer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#footer");
+                }}
+              >
                 Contact
               </a>
             </li>
