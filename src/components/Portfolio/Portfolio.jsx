@@ -35,46 +35,46 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 mb-4 mb-md-0">
-              <h3 className="h3 font-weight-bold mb-3">Technical Skills</h3>
-              <div className="skills-container">
-                {technicalSkills.map((skill, index) => (
-                  <div key={index} className="skill-section">
-                    <div className="skill-title d-flex justify-content-between">
-                      <span>{skill.name}</span>
-                      <span>{skill.level}%</span>
-                    </div>
-                    <div className="progress-bar">
-                      <div
-                        className="progress-fill technical"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+        <div className="skills-row">
+          {/* Technical Skills */}
+          <div className="skills-column">
+            <h3 className="h3 font-weight-bold mb-3">Technical Skills</h3>
+            <div className="skills-container">
+              {technicalSkills.map((skill, index) => (
+                <div key={index} className="skill-section">
+                  <div className="skill-title">
+                    <span>{skill.name}</span>
+                    <span>{skill.level}%</span>
                   </div>
-                ))}
-              </div>
+                  <div className="progress-bar">
+                    <div
+                      className="progress-fill technical"
+                      style={{ width: `${skill.level}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="col-md-6">
-              <h3 className="h3 font-weight-bold mb-3">Soft Skills</h3>
-              <div className="skills-container">
-                {softSkills.map((skill, index) => (
-                  <div key={index} className="skill-section">
-                    <div className="skill-title d-flex justify-content-between">
-                      <span>{skill.name}</span>
-                      <span>{skill.level}%</span>
-                    </div>
-                    <div className="progress-bar">
-                      <div
-                        className="progress-fill soft"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+          {/* Soft Skills */}
+          <div className="skills-column">
+            <h3 className="h3 font-weight-bold mb-3">Soft Skills</h3>
+            <div className="skills-container">
+              {softSkills.map((skill, index) => (
+                <div key={index} className="skill-section">
+                  <div className="skill-title">
+                    <span>{skill.name}</span>
+                    <span>{skill.level}%</span>
                   </div>
-                ))}
-              </div>
+                  <div className="progress-bar">
+                    <div
+                      className="progress-fill soft"
+                      style={{ width: `${skill.level}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -85,49 +85,6 @@ const Experience = () => {
             </div>
           </div>
         </div>
-
-        {/* Certifications */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-blue-600 mb-8 flex items-center gap-2">
-            <FontAwesomeIcon icon={faCertificate} /> Certifications
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                img: "/aws.png",
-                title: "AWS Certified Developer",
-                issuer: "Amazon Web Services",
-              },
-              {
-                img: "/google.png",
-                title: "Google Cloud Certified",
-                issuer: "Google",
-              },
-              {
-                img: "/mongodb.png",
-                title: "MongoDB Certified Developer",
-                issuer: "MongoDB",
-              },
-            ].map((cert, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <img
-                    src={cert.img}
-                    alt={cert.title}
-                    className="w-12 h-12 object-contain"
-                  />
-                  <div>
-                    <h4 className="font-bold">{cert.title}</h4>
-                    <p className="text-sm text-gray-600">{cert.issuer}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

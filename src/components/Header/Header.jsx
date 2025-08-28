@@ -37,7 +37,7 @@ export default function Header() {
   }, [charIndex, deleting, index]);
 
   return (
-    <div className="header">
+    <div id="home" className="header">
       <div className="text-container">
         <h1>Hello, I'm Frank</h1>
         <h4>{text}</h4>

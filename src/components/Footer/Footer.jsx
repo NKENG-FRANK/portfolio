@@ -1,3 +1,4 @@
+// src/components/Footer/Footer.jsx
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -5,170 +6,141 @@ import {
   faLinkedin,
   faTwitter,
   faInstagram,
+  faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faEnvelope,
+  faPhone,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
-// ✅ Import your image the Vite way
-import logo from "../../logo_navbar.png";
+import "./Footer.css"; // ← IMPORTANT: import the CSS
+import logo from "../../logo_navbar.png"; // adjust path if needed
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    // TODO: plug into your backend / service
+    alert("Thanks for subscribing!");
+  };
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap">
-          {/* Logo and About */}
-          <div className="w-full md:w-1/3 mb-8 md:mb-0">
-            <div className="flex items-center mb-4">
-              <img src={logo} alt="Logo" className="w-10 h-10 rounded mr-3" />
-              <span className="text-2xl font-bold">My Portfolio</span>
-            </div>
-            <p className="text-gray-400 mb-6 pr-4">
-              Creating innovative software solutions that help businesses thrive
-              in the digital world. Let's build something amazing together.
-            </p>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <FontAwesomeIcon icon={faLinkedin} className="text-xl" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="GitHub"
-              >
-                <FontAwesomeIcon icon={faGithub} className="text-xl" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Twitter"
-              >
-                <FontAwesomeIcon icon={faTwitter} className="text-xl" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Instagram"
-              >
-                <FontAwesomeIcon icon={faInstagram} className="text-xl" />
-              </a>
-            </div>
+    <footer className="footer">
+      <div className="footer-container">
+        {/* Logo + About */}
+        <section className="footer-section about">
+          <div className="logo-row">
+            <img src={logo} alt="My Portfolio logo" className="footer-logo" />
+            <span className="footer-title">My Portfolio</span>
           </div>
 
-          {/* Quick Links */}
-          <div className="w-full md:w-1/3 mb-1 md:mb-0">
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#home"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#skills"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#portfolio"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#experience"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#testimonials"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="w-full md:w-1/3">
-            <h3 className="text-lg font-bold mb-4">Stay Updated</h3>
-            <p className="text-gray-400 mb-4">
-              Subscribe to my newsletter for the latest projects, tech insights,
-              and opportunities.
-            </p>
-            <form className="flex">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-grow px-4 py-2 rounded-l-lg focus:outline-none text-gray-900"
-              />
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} DevPortfolio. All rights reserved.
+          <p className="footer-copy">
+            Creating innovative software solutions that help businesses thrive
+            in the digital world. Let's build something amazing together.
           </p>
-          <div className="mt-4 md:mt-0">
-            <ul className="flex space-x-6 text-sm text-gray-400">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Cookie Policy
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+
+          <nav className="social-icons" aria-label="Social links">
+            <a
+              href="https://www.linkedin.com/in/nkeng-frank-b01a96306"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a
+              href="https://github.com/NKENG-FRANK"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a
+              href="https://x.com/FrankNkeng"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter/X"
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a
+              href="https://wa.me/237693791276?text=Salut%2C%20je%20viens%20de%20ton%20portfolio%20!"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} />
+            </a>
+          </nav>
+        </section>
+
+        {/* Contact Info */}
+        <section className="footer-section contact">
+          <h3 className="footer-heading">Contact Info</h3>
+          <ul className="contact-list">
+            <li>
+              <FontAwesomeIcon icon={faEnvelope} className="icon email" />
+              <a href="mailto:fnkeng52@gmail.com">fnkeng52@gmail.com</a>
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faPhone} className="icon phone" />
+              <a href="tel:+237693791276">+237 (693) 791-276</a>
+            </li>
+            <li>
+              <FontAwesomeIcon
+                icon={faMapMarkerAlt}
+                className="icon location"
+              />
+              <span>Yaounde, Cameroon / United States</span>
+            </li>
+          </ul>
+        </section>
+
+        {/* Newsletter */}
+        <section className="footer-section newsletter">
+          <h3 className="footer-heading">Stay Updated</h3>
+          <p className="footer-copy">
+            Subscribe to my newsletter for the latest projects, tech insights,
+            and opportunities.
+          </p>
+
+          <form className="newsletter-form" onSubmit={handleSubscribe}>
+            <input
+              type="email"
+              placeholder="Your email address"
+              aria-label="Your email address"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </section>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="footer-bottom">
+        <p>© {currentYear} DevPortfolio. All rights reserved.</p>
+        <ul className="policy-links">
+          <li>
+            <a href="#">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#">Terms of Service</a>
+          </li>
+          <li>
+            <a href="#">Cookie Policy</a>
+          </li>
+        </ul>
       </div>
     </footer>
   );
