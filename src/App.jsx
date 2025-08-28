@@ -7,6 +7,7 @@ import Experience from "./components/Experience/Experience";
 import Footer from "./components/Footer/Footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
